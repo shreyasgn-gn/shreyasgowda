@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #a47aaa, #90c5d1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: rgb(219, 183, 183);
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 320px;
+}
+
+h2 {
+    margin-bottom: 1em;
+    color: #333;
+}
+
+form input {
+    width: 100%;
+    padding: 0.7em;
+    margin: 0.5em 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100%;
+    padding: 0.7em;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background-color: #1976D2;
+}
+
+.admin-btn {
+    background-color: #4CAF50;
+}
+
+.admin-btn:hover {
+    background-color: #388E3C;
+}
+
+.error {
+    color: red;
+    margin-bottom: 1em;
+}
+.error-box {
+    background-color: #ffe0e0;
+    color: #b30000;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.success-box {
+    background-color: #e0ffe0;
+    color: #006600;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
