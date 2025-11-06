@@ -1,0 +1,331 @@
+/*styleshomes.css*/
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.top-header {
+    background-image: url('bgofmain.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    height: 60px;
+}
+
+.hero {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    animation: slideUp 1.5s ease-out;
+}
+
+.search-box input {
+    padding: 12px 20px;
+    width: 400px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.search-box button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: #0056b3;
+}
+
+.actions {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.login, .cell-button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.login {
+    background-color: #28a745;
+    color: white;
+}
+
+.login:hover {
+    background-color: #1e7e34;
+}
+
+.cell-button-wrapper {
+    background: linear-gradient(45deg, #ff6b6b, #f5b942, #58d68d, #5dade2);
+    background-size: 300% 300%;
+    padding: 3px;
+    border-radius: 50px;
+    animation: gradientShift 6s ease infinite;
+}
+
+.cell-button {
+    background-color: white;
+    color: #333;
+    border-radius: 50px;
+    padding: 10px 20px;
+}
+
+.cell-button:hover {
+    background-color: #eee;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+.cat {
+    margin: 30px 100px;
+    animation: fadeIn 1s ease;
+}
+
+.listing-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 100px;
+    animation: fadeInUp 1s ease-in;
+}
+
+/* Animations */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.worker-horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 15px;
+    scroll-snap-type: x mandatory;
+}
+
+.worker-horizontal-scroll::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+
+.worker-card {
+    flex: 0 0 auto;
+    width: 180px; /* Smaller width */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    scroll-snap-align: start;
+}
+
+.worker-card:hover {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.worker-image-wrapper {
+    width: 100%;
+    height: 120px; /* Smaller image */
+    overflow: hidden;
+}
+
+.worker-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.worker-card:hover .worker-image {
+    transform: scale(1.05);
+}
+
+.worker-info {
+    padding: 10px;
+}
+
+.worker-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.worker-work {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.worker-availability {
+    font-size: 12px;
+    color: green;
+    margin-bottom: 4px;
+}
+
+.worker-location {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 4px;
+}
+
+.worker-date {
+    font-size: 10px;
+    color: #aaa;
+}
+.worker-horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 15px;
+    scroll-snap-type: x mandatory;
+}
+
+.worker-horizontal-scroll::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+
+.worker-card {
+    flex: 0 0 auto;
+    width: 180px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    scroll-snap-align: start;
+}
+
+.worker-card:hover {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.worker-image-wrapper {
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+}
+
+.worker-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.worker-card:hover .worker-image {
+    transform: scale(1.05);
+}
+
+.worker-info {
+    padding: 10px;
+}
+
+.worker-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.worker-work {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.worker-availability {
+    font-size: 12px;
+    color: green;
+    margin-bottom: 4px;
+}
+
+.worker-location {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 4px;
+}
+
+.worker-date {
+    font-size: 10px;
+    color: #aaa;
+}
+.group-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
