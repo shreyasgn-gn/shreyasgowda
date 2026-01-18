@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Student Book Market</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Full-page background image with blur */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px) brightness(0.6); /* blur + darken slightly */
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+
+<!-- Centered login card -->
+<div class="bg-white w-full max-w-md p-10 rounded-3xl shadow-2xl text-gray-800 relative z-10">
+    
+    <!-- Title -->
+    <h2 class="text-4xl font-bold text-center mb-4">Student Book Market</h2>
+    <p class="text-center text-gray-600 mb-8">Login to sell or buy used textbooks</p>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="bg-green-100 text-green-800 p-3 mb-4 rounded-lg text-center font-medium">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Login Form -->
+    <form method="post" class="space-y-6">
+        <input name="email" type="email" placeholder="Email" 
+               class="w-full border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+        <input name="password" type="password" placeholder="Password" 
+               class="w-full border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+        <button class="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition duration-300">Login</button>
+    </form>
+
+    <!-- Links -->
+    <p class="text-center mt-6 text-gray-700">
+        Don't have an account? 
+        <a href="/register" class="text-blue-600 font-semibold hover:underline">Register</a>
+    </p>
+</div>
+
+</body>
+</html>

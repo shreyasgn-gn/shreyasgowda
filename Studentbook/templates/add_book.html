@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book | Student Book Market</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px) brightness(0.6);
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen">
+
+<div class="bg-white w-full max-w-md p-10 rounded-3xl shadow-2xl relative z-10">
+
+    <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">Add Book</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="bg-green-100 text-green-800 p-3 mb-4 text-center rounded-lg">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="post" enctype="multipart/form-data" class="space-y-5">
+
+        <!-- Book Title -->
+        <input name="title" type="text" placeholder="Book Title" required
+               class="w-full border border-gray-300 p-4 rounded-xl focus:ring-2 focus:ring-green-400">
+
+        <!-- Author -->
+        <input name="author" type="text" placeholder="Author" required
+               class="w-full border border-gray-300 p-4 rounded-xl focus:ring-2 focus:ring-green-400">
+
+        <!-- Price -->
+        <input name="price" type="number" placeholder="Price (₹)" required
+               class="w-full border border-gray-300 p-4 rounded-xl focus:ring-2 focus:ring-green-400">
+
+        <!-- Book Condition -->
+        <select name="condition_book" required
+                class="w-full border border-gray-300 p-4 rounded-xl focus:ring-2 focus:ring-green-400">
+            <option value="">Select Book Condition</option>
+            <option value="New">New</option>
+            <option value="Like New">Like New</option>
+            <option value="Very Good">Very Good</option>
+            <option value="Good">Good</option>
+            <option value="Acceptable">Acceptable</option>
+        </select>
+
+        <!-- Contact Number -->
+        <input name="contact_number" type="tel" required
+               placeholder="Contact Number (Call / WhatsApp)"
+               pattern="[0-9]{10}"
+               title="Enter 10 digit mobile number"
+               class="w-full border border-gray-300 p-4 rounded-xl focus:ring-2 focus:ring-green-400">
+
+        <!-- Image Upload -->
+        <label class="block text-gray-700 font-medium">Upload Book Cover:</label>
+        <input name="image" type="file" accept="image/*"
+               class="w-full border border-gray-300 p-2 rounded-xl">
+
+        <!-- Submit -->
+        <button class="w-full bg-green-600 text-white py-4 rounded-xl font-semibold hover:bg-green-700 transition">
+            Add Book
+        </button>
+    </form>
+
+    <p class="text-center mt-6 text-gray-700">
+        <a href="/dashboard" class="text-blue-600 font-semibold hover:underline">
+            Back to Dashboard
+        </a>
+    </p>
+
+</div>
+
+</body>
+</html>

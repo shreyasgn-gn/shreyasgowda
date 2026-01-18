@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | Student Book Market</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Blurred background image */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px) brightness(0.6);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+
+<!-- Register Card -->
+<div class="bg-white w-full max-w-md p-10 rounded-3xl shadow-2xl relative z-10">
+
+    <!-- Title -->
+    <h2 class="text-4xl font-bold text-center mb-3 text-gray-800">Student Book Market</h2>
+    <p class="text-center text-gray-600 mb-8">Create your account to start buying & selling books</p>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="bg-green-100 text-green-800 p-3 mb-4 rounded-lg text-center font-medium">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Registration Form -->
+    <form method="post" class="space-y-6" onsubmit="return validatePassword()">
+        <input 
+            name="name" 
+            type="text" 
+            placeholder="Full Name" 
+            class="w-full border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400" 
+            required
+        >
+        
+        <input 
+            name="email" 
+            type="email" 
+            placeholder="Email" 
+            class="w-full border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400" 
+            required
+        >
+        
+        <!-- Password Field -->
+        <div class="relative">
+            <input 
+                id="password"
+                name="password" 
+                type="password" 
+                placeholder="Password" 
+                class="w-full border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400" 
+                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&]).{6,12}" 
+                title="Password must be 6-12 characters, include uppercase, lowercase, and a special character (@$!%*?&)" 
+                required
+            >
+            <button type="button" onclick="togglePassword('password')" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+                Show
+            </button>
+        </div>
+
+        <!-- Confirm Password Field -->
+        <div class="relative">
+            <input 
+                id="confirm_password"
+                name="confirm_password" 
+                type="password" 
+                placeholder="Confirm Password" 
+                class="w-full border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400" 
+                required
+            >
+            <button type="button" onclick="togglePassword('confirm_password')" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+                Show
+            </button>
+        </div>
+        
+        <button class="w-full bg-green-600 text-white py-4 rounded-xl font-semibold hover:bg-green-700 transition duration-300">
+            Register
+        </button>
+    </form>
+
+    <!-- Login Link -->
+    <p class="text-center mt-6 text-gray-700">
+        Already have an account? 
+        <a href="/" class="text-blue-600 font-semibold hover:underline">Login</a>
+    </p>
+</div>
+
+<!-- JS: Confirm Password + Show/Hide Password -->
+<script>
+function validatePassword() {
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm_password").value;
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return false; // prevent form submission
+    }
+    return true;
+}
+
+// Toggle password visibility
+function togglePassword(id) {
+    const input = document.getElementById(id);
+    const btn = event.currentTarget;
+    if (input.type === "password") {
+        input.type = "text";
+        btn.textContent = "Hide";
+    } else {
+        input.type = "password";
+        btn.textContent = "Show";
+    }
+}
+</script>
+
+</body>
+</html>
